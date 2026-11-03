@@ -246,7 +246,7 @@ class AutoPilotGUI:
         self.root.title("Racing Auto-Pilot")
         self.root.geometry("860x780")
         self.root.configure(bg=self.BG)
-        self.root.resizable(False, False)
+        self.root.resizable(True, True)
 
         self.ctrl = ActuatorController()
         self.ctrl.on_response = self._on_serial_response
@@ -566,7 +566,7 @@ class AutoPilotGUI:
         rgb = cv2.cvtColor(cv_img, cv2.COLOR_BGR2RGB)
         pil_img = Image.fromarray(rgb)
         tk_img = ImageTk.PhotoImage(pil_img)
-        label.config(image=tk_img)
+        label.config(image=tk_img, width=0, height=0)
         label._photo = tk_img  # prevent garbage collection
 
     # ── serial callbacks (from reader thread) ───────────────────

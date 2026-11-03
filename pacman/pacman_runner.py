@@ -306,7 +306,7 @@ class PacmanAutoPilotApp:
         self.root.title("Pac-Man Auto-Pilot")
         self.root.geometry("860x780")
         self.root.configure(bg=self.BG)
-        self.root.resizable(False, False)
+        self.root.resizable(True, True)
 
         # Shared ESP32 actuator controller
         self.ctrl = ActuatorController()
@@ -606,7 +606,7 @@ class PacmanAutoPilotApp:
 
         rgb = cv2.cvtColor(resized, cv2.COLOR_BGR2RGB)
         img_pi = ImageTk.PhotoImage(Image.fromarray(rgb))
-        label.config(image=img_pi)
+        label.config(image=img_pi, width=0, height=0)
         label.image = img_pi
 
     # ── Serial Callbacks & Logging ──────────────────────────────
